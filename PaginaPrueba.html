@@ -10,10 +10,10 @@
 	<body>
 		<center>
 			<font face="Helvetica" size="19" color="#1D66E0"><b>MEJCD CORP</b></font><br>
-                        <img src="Imagenes/evolucion.jpg" width="50%" height="25%">
+            <img src="Imagenes/evolucion.jpg" width="50%" height="25%">
 		
-		<form>                    
-                                <table border="20" style="background: #2982D0">
+		<form name = "formulario" id="formulario" method="POST" action="">                    
+                                <table style="border: black 20px solid; background: #2982D0">
                                         <tr>
                                                 <td><font face="Helvetica" size="5" color="black"><center> Nombres:</center></font></center></td>
                                                 <td><input type="text" name="" id="" size="15"/></td>                                                
@@ -27,13 +27,16 @@
                                                 <td><input type="text" name="" id="" size="15"/></td>
                                         </tr>
                                         <tr>
-                                                <td><font face="Helvetica" size="5" color="black"><center>Peso:</center></font></td>
+                                                <td><font face="Helvetica" size="5" color="black"><center>Peso (kg):</center></font></td>
                                                 <td><input type="text" name="" id="" size="15"/></td>
                                         </tr>
                                         <tr>
-                                                <td><font face="Helvetica" size="5" color="black"><center>Talla:</center></font></td>
+                                                <td><font face="Helvetica" size="5" color="black"><center>Talla (cm):</center></font></td>
                                                 <td><input type="text" name="" id="" size="15"/></td>
-                                        </tr>                                        
+                                        </tr>  
+                                        <tr>
+												<td colspan="2" style="text-align:center;"><input name="enviar" type="submit" size="60" align="centre" id ="enviar" value="Enviar"/></td>
+                                        </tr>                                      
                                 </table>
                         </center>
                 </form>
