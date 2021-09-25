@@ -1,0 +1,9 @@
+.header{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    clear:both;
+    background-color: #2982D0;
+    border: 5px solid black;
+    
+}
