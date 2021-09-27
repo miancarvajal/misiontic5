@@ -1,11 +1,35 @@
 .header{
+    text-align: center;
     position: relative;
     width: 100%;
-    height: 80px;
+    height: 35px;
     clear:both;
-    background-color: #2982D0;
-    border: 5px solid black;
+    background-color: #0a102e;
+    font-family:'century gothic';
+    color: white;
     
+}
+
+.nav{
+    width: 100%;
+
+}
+
+img{
+    margin: auto;
+    display: block;
+}
+
+.forms{
+    width: 400px;
+    background: #24303c;
+    padding: 30px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+
 }
 
 .medidas{
