@@ -14,20 +14,63 @@
 			<font face="Helvetica" size="19" color="#1D66E0"><h1>MEJCD CORP</h1></font><br>
             </div>
             <img src="Imagenes/evolucion.jpg" width="50%" height="25%">
-		
-		<form name = "formulario" id="formulario" method="POST" action="">                    
-			Nombres:
-            <input type="text" name="" id="" size="15"/>
-			Apellidos:
-            <input type="text" name="" id="" size="15"/>
-            Edad:
-            <input type="number" name="" id="" size="15" min="0" max="100" style="width : 35%"/>
-            Peso (kg):
-			<input type="number" name="" id="" size="15" min="0" max="300"style="width : 40%"/>
-            Talla (cm):
-			<input type="number" name="" id="" size="15" min="15" max="255"style="width : 40%"/>
-            <input name="enviar" type="submit" size="60" align="centre" id ="enviar" value="Enviar"/>
-         
+            
+		<form name = "formulario" id="formulario" method="POST" action="">      
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">              
+						Nombres:
+					</div>
+					<div class="col-md-6">              
+						<input type="text" maxlength="40" name="" id="" size="15"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">              
+						Apellidos:
+					</div>
+					<div class="col-md-6">              
+						<input type="text" maxlength="40" name="" id="" size="15"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">              
+						Nombres:
+					</div>
+					<div class="col-md-6">              
+						<input type="text" maxlength="40" name="" id="" size="15"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">              
+						Edad:
+					</div>
+					<div class="col-md-6">              
+						<input type="number" name="edad" id="" min="0" max="100"/>
+					</div>
+				</div>
+				<div name="medidas">
+					<div class="row">
+						<div class="col-md-6">              
+							Peso (kg):
+						</div>
+						<div class="col-md-6">              
+							<input type="number" name="" id="" min="0" max="300"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">              
+							Talla (cm):
+						</div>
+						<div class="col-md-6">              
+							<input type="number" name="talla" id="" min="15" max="255"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12"> 
+					<input name="enviar" type="submit" align="centre" id ="enviar" value="Enviar"/>
+				</div>
+			</div>
          </form>
 		</center>
       </body>
