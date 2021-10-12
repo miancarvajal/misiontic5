@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+	<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+            <link rel="stylesheet" href="Estilos/estilos.css" />
+            <script src="Js/modelo.js"></script>
+            <script src="https://www.gstatic.com/charts/loader.js"></script>
+            <script>
+				google.charts.load('current', {packages: ['corechart']});
+				google.charts.setOnLoadCallback(dibujarGraficoBarras);
+            </script>
+     </head>
+     
+    <title>MEJCD</title>
+     
+	<body>
+		<div class="header">
+			<h3>MEJCD CORP</h3>
+        </div>
+        <div class="nav">
+		<img src="Imagenes/evolucion.jpg" width="35%" height="15%">
+		</div>		
+        <section class="forms">
+		<div class="body">    
+		<form name = "formulario" id="formulario" method="POST" action="">      
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">              
+						Nombres:
+					</div>
+					<div class="col-md-6">              
+						<input type="text" maxlength="40" name="" id="nombre" size="15" onkeypress="return blqnum(event);"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">              
+						Apellidos:
+					</div>
+					<div class="col-md-6">              
+						<input type="text" maxlength="40" name="" id="apellido" size="15" onkeypress="return blqnum(event);"/>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">              
+						Edad:
+					</div>
+					<div class="col-md-6">              
+						<input type="number" name="edad" id="edad" min="0" max="100" onkeypress="return blqlet(event);"/>
+					</div>
+				</div>
+				<div name="medidas">
+					<div class="row">
+						<div class="col-md-6">              
+							Peso (kg):
+						</div>
+						<div class="col-md-6">              
+							<input type="number" name="" id="peso" min="0" max="300" onkeypress="return blqlet(event);"/>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">              
+							Talla (cm):
+						</div>
+						<div class="col-md-6">              
+							<input type="number" name="talla" id="talla" min="15" max="255" onkeypress="return blqlet(event);"/>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12"> 
+					<input name="enviar" type="submit" align="centre" id ="enviar" value="Enviar" onclick="controller()"/>
+				</div>
+			</div>
+         </form>
+		</div>
+	</section>
+	 <div id="graficoBarras">
+		
+		</div>
+		
+	<div id="tablePrint"> </div>
+      </body>
+</html>

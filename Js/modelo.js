@@ -53,17 +53,14 @@
 /*función controladora*/
 	function controller(){
 		var lstPersona=[];
-		lstPersona=datos();
-		//lstPersona.push(datos());	
+		/*lstPersona=datos();*/
+		lstPersona.push(datos());	
 		for(var i=0; i<=lstPersona.length; i++){
 				console.log(lstPersona[i]);
 			}
-		
-		/*lstPersona.foreach(function(persona){
-			console.log(persona);
-			});*/
-		tabla();
+		generar_tabla(lstPersona);
 		}
+		
 	
 /*función de ingreso de datos*/
 	function datos(){
@@ -77,41 +74,83 @@
 		console.log("indice de mas corporal: " + indiceMasaCorporal);
 		var calssEstNutri = cen(indiceMasaCorporal);
 		console.log("Clasificacion nutricional: " + calssEstNutri);
-		var lstDatos = [nombre, apellido, edad, peso, talla, indiceMasaCorporal, calssEstNutri];
+		var lstDatos = ({nombre: nombre, apellido: apellido, edad: edad, peso: peso, talla: talla, imc: indiceMasaCorporal, en: calssEstNutri});
 		return lstDatos;
 		}
 		
-	function tabla() {
-  // Obtener la referencia del elemento body
-  var body = document.getElementsByTagName("body")[0];
+		
+/*funciones para tabla*/
 
-  // Crea un elemento <table> y un elemento <tbody>
-  var tabla   = document.createElement("table");
-  var tblBody = document.createElement("tbody");
+function generar_tabla(lstPersona){
+     /*productos = datos();*/
 
-  // Crea las celdas
-  for (var i = 0; i < 2; i++) {
-    // Crea las hileras de la tabla
-    var hilera = document.createElement("tr");
+    let myTable= "<table><tr><td style='width: 100px; color: red;'>ID</td>";
+    myTable+= "<td style='width: 100px; color: red; text-align: right;'>Nombre</td>";
+    myTable+="<td style='width: 100px; color: red; text-align: right;'>Cantidad</td>";
+    myTable+="<td style='width: 100px; color: red; text-align: right;'>Precio</td></tr>";
+    myTable+="<tr><td style='width: 100px;'>---------------</td>";
+    myTable+="<td style='width: 100px; text-align: right;'>---------------</td>";
+    myTable+="<td style='width: 100px; text-align: right;'>---------------</td>";
+    myTable+="<td style='width: 100px; text-align: right;'>---------------</td></tr>";    
 
-    for (var j = 0; j < 2; j++) {
-      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
-      // texto sea el contenido de <td>, ubica el elemento <td> al final
-      // de la hilera de la tabla
-      var celda = document.createElement("td");
-      var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
-      celda.appendChild(textoCelda);
-      hilera.appendChild(celda);
+    for (let i = 0; i < lstPersona.length; i++) {
+          myTable+="<tr><td style='width: 100px;text-align: right;'>" + lstPersona[i].nombre + "</td>";        
+          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].apellido + "</td>";    
+          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].edad + "</td>";    
+          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].peso + "</td>";    
+          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].talla + "</td>";    
+          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].indiceMasaCorporal + "</td>";    
+          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].calssEstNutri + "</td>";    
+          myTable+="</tr>";
     }
-
-    // agrega la hilera al final de la tabla (al final del elemento tblbody)
-    tblBody.appendChild(hilera);
+      
+      myTable+="</table>";
+      document.getElementById('tablePrint').innerHTML = myTable;
   }
+  
 
-  // posiciona el <tbody> debajo del elemento <table>
-  tabla.appendChild(tblBody);
-  // appends <table> into <body>
-  body.appendChild(tabla);
-  // modifica el atributo "border" de la tabla y lo fija a "2";
-  tabla.setAttribute("border", "2");
+
+/*SECCION DE GRAFICOS*/
+/*function cargueDatos(){
+	var datosImc = new google.visualization.DataTable();
+	datosImc.addColumn('string','Categoria Estado Nutricional')
+	datosImc.addColumn('number','Votos')
+	//Bajo de peso, Peso ideal, Sobrepeso, Obesidad, Obesidad Severa, Obesidad Morbida
+	datosImc.addRows([['Bajo de peso',10, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+					  ['Peso ideal',8,'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+					  ['Sobrepeso',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+					  ['Obesidad',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+					  ['Obesidad Severa',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+					  ['Obesidad Morbida',5, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF']
+	]);
+	return datosImc;
+	}*/
+				
+function dibujarGraficoBarras(){
+		var data = google.visualization.arrayToDataTable([
+        ['', '', { role: 'style' }],
+        ['Bajo de peso',10, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+		['Peso ideal',8,'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+		['Sobrepeso',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+		['Obesidad',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+		['Obesidad Severa',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
+		['Obesidad Morbida',5, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF']
+      ]);
+
+      var options = {
+        title: 'GRAFICO DE ESTADO NUTRICIONAL',
+        chartArea: {width: '50%'},
+        hAxis: {
+          title: 'Cantidad de personas',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'Estado'
+        }
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('graficoBarras'));
+
+      chart.draw(data, options);
 }
+			
