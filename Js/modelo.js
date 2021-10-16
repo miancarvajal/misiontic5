@@ -58,7 +58,7 @@
 		for(var i=0; i<=lstPersona.length; i++){
 				console.log(lstPersona[i]);
 			}
-		generar_tabla(lstPersona);
+		generar_tabla();
 		}
 		
 	
@@ -81,31 +81,38 @@
 		
 /*funciones para tabla*/
 
-function generar_tabla(lstPersona){
-     /*productos = datos();*/
+function generar_tabla(){
+  var body = document.getElementsByTagName("body")[0];
 
-    let myTable= "<table><tr><td style='width: 100px; color: red;'>ID</td>";
-    myTable+= "<td style='width: 100px; color: red; text-align: right;'>Nombre</td>";
-    myTable+="<td style='width: 100px; color: red; text-align: right;'>Cantidad</td>";
-    myTable+="<td style='width: 100px; color: red; text-align: right;'>Precio</td></tr>";
-    myTable+="<tr><td style='width: 100px;'>---------------</td>";
-    myTable+="<td style='width: 100px; text-align: right;'>---------------</td>";
-    myTable+="<td style='width: 100px; text-align: right;'>---------------</td>";
-    myTable+="<td style='width: 100px; text-align: right;'>---------------</td></tr>";    
+  // Crea un elemento <table> y un elemento <tbody>
+  var tabla   = document.createElement("table");
+  var tblBody = document.createElement("tbody");
 
-    for (let i = 0; i < lstPersona.length; i++) {
-          myTable+="<tr><td style='width: 100px;text-align: right;'>" + lstPersona[i].nombre + "</td>";        
-          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].apellido + "</td>";    
-          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].edad + "</td>";    
-          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].peso + "</td>";    
-          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].talla + "</td>";    
-          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].indiceMasaCorporal + "</td>";    
-          myTable+="<td style='width: 100px;text-align: right;'>" + lstPersona[i].calssEstNutri + "</td>";    
-          myTable+="</tr>";
+  // Crea las celdas
+  for (var i = 0; i < 2; i++) {
+    // Crea las hileras de la tabla
+    var hilera = document.createElement("tr");
+
+    for (var j = 0; j < 2; j++) {
+      // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+      // texto sea el contenido de <td>, ubica el elemento <td> al final
+      // de la hilera de la tabla
+      var celda = document.createElement("td");
+      var textoCelda = document.createTextNode("celda en la hilera "+i+", columna "+j);
+      celda.appendChild(textoCelda);
+      hilera.appendChild(celda);
     }
-      
-      myTable+="</table>";
-      document.getElementById('tablePrint').innerHTML = myTable;
+
+    // agrega la hilera al final de la tabla (al final del elemento tblbody)
+    tblBody.appendChild(hilera);
+  }
+
+  // posiciona el <tbody> debajo del elemento <table>
+  tabla.appendChild(tblBody);
+  // appends <table> into <body>
+  body.appendChild(tabla);
+  // modifica el atributo "border" de la tabla y lo fija a "2";
+  tabla.setAttribute("border", "2");
   }
   
 
@@ -129,12 +136,12 @@ function generar_tabla(lstPersona){
 function dibujarGraficoBarras(){
 		var data = google.visualization.arrayToDataTable([
         ['', '', { role: 'style' }],
-        ['Bajo de peso',10, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
-		['Peso ideal',8,'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
-		['Sobrepeso',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
-		['Obesidad',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
-		['Obesidad Severa',8, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF'],
-		['Obesidad Morbida',5, 'stroke-color: #703593; stroke-width: 4; fill-color: #C5A5CF']
+        ['Bajo de peso',10, 'stroke-color: #23A8B9; stroke-width: 4; fill-color: #29DDF4'],
+		['Peso ideal',20,'stroke-color: #598C5A; stroke-width: 4; fill-color: #1CB420'],
+		['Sobrepeso',30, 'stroke-color: #CBD08C; stroke-width: 4; fill-color: #CAD72F'],
+		['Obesidad',5, 'stroke-color: #D3AC17; stroke-width: 4; fill-color: #7B6924'],
+		['Obesidad Severa',3, 'stroke-color: #AC6538; stroke-width: 4; fill-color: #DC8215'],
+		['Obesidad Morbida',1, 'stroke-color: #F31109; stroke-width: 4; fill-color: #E77874']
       ]);
 
       var options = {
@@ -153,4 +160,26 @@ function dibujarGraficoBarras(){
 
       chart.draw(data, options);
 }
+
+function dibujarGraficoBarras2(){
+		var data = google.visualization.arrayToDataTable([
+          ['Label', 'Value'],
+          ['IMC medio', 22]
+        ]);
+
+        var options = {
+          width: 900, height: 600,
+          greenFrom: 18.6, greenTo: 24.9,
+          yellowFrom:25, yellowTo: 34.9,
+          redFrom: 35, redTo: 100,
+          minorTicks: 5
+        };
+        var chart = new google.visualization.Gauge(document.getElementById('graficoBarras2'));
+
+      chart.draw(data, options);
+      setInterval(function() {
+          data.setValue(0, 1, 10 + Math.round(60 * Math.random()));
+          chart.draw(data, options);
+        }, 13000);        
+      }
 			

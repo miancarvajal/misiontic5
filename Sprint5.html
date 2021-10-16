@@ -8,7 +8,9 @@
             <script src="https://www.gstatic.com/charts/loader.js"></script>
             <script>
 				google.charts.load('current', {packages: ['corechart']});
+				google.charts.load('current', {'packages':['gauge']});
 				google.charts.setOnLoadCallback(dibujarGraficoBarras);
+				google.charts.setOnLoadCallback(dibujarGraficoBarras2);
             </script>
      </head>
      
@@ -74,10 +76,13 @@
          </form>
 		</div>
 	</section>
-	 <div id="graficoBarras">
-		
-		</div>
-		
-	<div id="tablePrint"> </div>
+	
+	<div class="container">
+		<div id="graficoBarras"></div>
+		<div id="graficoBarras2"></div>
+	<!--	<div id="tabla"> 
+			<input type="button" value="Genera una tabla" onclick="generar_tabla()">
+		</div>-->
+	</div>
       </body>
 </html>
