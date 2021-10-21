@@ -1,0 +1,30 @@
+SOLO JAVA (solo una IDE):
+IDE Eclipse: https://www.eclipse.org/downloads/
+IDE Spring Tools Studio: https://spring.io/tools
+JDK 11: https://www.openlogic.com/openjdk-downloads
+
+SOLO PYTHON:
+IDE Pycham: https://www.jetbrains.com/es-es/pycharm/download/#section=windows
+Python 3.10: https://www.python.org/downloads/
+
+LIBRERÍA ADICIONAL PARA DJANGO:
+https://github.com/adamchainz/django-cors-headers
+
+PARA TODOS:
+MySQL: https://dev.mysql.com/downloads/
+Postman: https://www.postman.com/downloads/
+
+VUE:
+IDE Visual Studio Code: https://code.visualstudio.com/download
+Extensiones: Vetur
+Vue-Cli: https://cli.vuejs.org/guide/installation.html
+
+ACCESO A SERVIDORES:
+Putty: https://www.putty.org/
+WinSCP: https://winscp.net/eng/download.php
+
+SOLUCION A PROBLEMAS DE INSTTALACION DE PUTTI
+msiexec /i putty-64bit-0.76-installer.msi WIXUI_DONTVALIDATEPATH="1"
+
+
+
